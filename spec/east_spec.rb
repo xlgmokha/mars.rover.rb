@@ -17,4 +17,9 @@ describe East do
       sut.turn_right.should be_an_instance_of(South)
     end
   end
+  context "when turning left" do
+    it "should face North" do
+      sut.turn_left.should be_an_instance_of(North)
+    end
+  end
 end
