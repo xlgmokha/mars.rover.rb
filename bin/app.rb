@@ -1,5 +1,10 @@
 #!/usr/bin/ruby
+require 'east'
+require 'north'
+require 'rover'
+require 'south'
 require 'terrain'
+require 'west'
 
 def get_heading(pneumonic)
   case(pneumonic)
@@ -15,20 +20,14 @@ def get_heading(pneumonic)
 end
 
 puts "enter size of terrain:"
-terrain = gets
+edge = gets.split(' ')
+terrain = Terrain.new({:x => edge[0], :y => edge[1]})
 
 puts "enter landing coordinates:"
 landing = gets
+rover = Rover.new(get_heading(landing.split(" ")[2]), {:x => landing.split(" ")[0], :y => landing.split(" ")[1]})
 
 puts "enter instructions:"
-instructions = gets
-
-coordinates = terrain.split(" ")
-terrain = Terrain.new({:x => coordinates[0], :y => coordinates[1]})
-
-heading = get_heading( landing.split(" ")[2])
-location = {:x => landing.split(" ")[0], :y => landing.split(" ")[1]}
-
-instructions.each do |instruction|
-
+gets.split(//).each do |instruction|
+  puts instruction
 end
