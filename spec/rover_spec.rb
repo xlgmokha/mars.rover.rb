@@ -7,73 +7,67 @@ describe Rover do
   end
 
   context "when facing north" do
-    before do
-      @sut = create_sut :north, 0, 0
-    end
+    let(:sut) { create_sut :north, 0, 0 }
     context "when turning right" do
       it "should face east" do
-        @sut.turn_right
-        @sut.heading.should == :east
+        sut.turn_right
+        sut.heading.should == :east
       end
     end
     context "when turning left" do
       it "should face west" do
-        @sut.turn_left
-        @sut.heading.should == :west
+        sut.turn_left
+        sut.heading.should == :west
       end
     end
   end
 
   context "when facing south" do
-    before do
-      @sut = create_sut :south, 0, 3
-    end
+    let(:sut) { create_sut :south, 0, 3 }
     context "when turning right" do
       it "should face west" do
-        @sut.turn_right
-        @sut.heading.should == :west
+        sut.turn_right
+        sut.heading.should == :west
       end
     end
     context "when turning left" do
       it "should face east" do
-        @sut.turn_left
-        @sut.heading.should == :east
+        sut.turn_left
+        sut.heading.should == :east
       end
     end
   end
 
   context "when facing east" do
-    before do
-      @sut = create_sut :east
-    end
+    let(:sut) { create_sut :east }
+
     context "when turning right" do
       it "should face south" do
-        @sut.turn_right
-        @sut.heading.should == :south
+        sut.turn_right
+        sut.heading.should == :south
       end
     end
     context "when turning left" do
       it "should face north" do
-        @sut.turn_left
-        @sut.heading.should == :north
+        sut.turn_left
+        sut.heading.should == :north
       end
     end
   end
 
   context "when facing west" do
-    before do
-      @sut = create_sut :west, 1, 0
-    end
+    let(:sut){ create_sut :west, 1, 0 }
+
     context "when turning right" do
       it "should face north" do
-        @sut.turn_right
-        @sut.heading.should == :north
+        sut.turn_right
+        sut.heading.should == :north
       end
     end
     context "when turning left" do
       it "should face south" do
-        @sut.turn_left
-        @sut.heading.should == :south
+        sut.turn_left
+        sut.heading.should == :south
       end
     end
   end
