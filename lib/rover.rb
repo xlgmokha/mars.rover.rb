@@ -3,7 +3,6 @@ class Rover
   def initialize(heading, coordinates)
     @heading = heading
     @location = coordinates
-    puts coordinates
   end
   def heading
     @heading.class.name.downcase.to_sym
@@ -16,6 +15,9 @@ class Rover
   end
   def move_forward(terrain)
     terrain.move_forward(@heading, @location)
+  end
+  def to_s
+    "#{@heading} #{@location}"
   end
 end
 
