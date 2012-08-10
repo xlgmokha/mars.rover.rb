@@ -1,5 +1,4 @@
 task :default => :spec do
-
 end
 
 task :spec do
