@@ -3,6 +3,7 @@ class Rover
   def initialize(heading, coordinates)
     @heading = heading
     @location = coordinates
+    puts coordinates
   end
   def heading
     @heading.class.name.downcase.to_sym
