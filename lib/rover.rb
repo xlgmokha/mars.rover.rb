@@ -1,6 +1,6 @@
 class Rover
   attr_reader :location
-  def initialize(heading, coordinates, plateau = nil)
+  def initialize(heading, coordinates, plateau)
     @heading = heading
     @location = coordinates
     @plateau = plateau
@@ -16,9 +16,6 @@ class Rover
   end
   def forward
     @plateau.move_forward(@heading, @location)
-  end
-  def move_forward(plateau)
-    plateau.move_forward(@heading, @location)
   end
   def to_s
     "#{@location[:x]} #{@location[:y]} #{@heading}"

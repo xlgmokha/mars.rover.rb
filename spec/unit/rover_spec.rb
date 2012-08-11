@@ -3,8 +3,9 @@ require 'spec_helper'
 describe Rover do
   def create_sut(heading, x = 0, y = 0)
     directions = {:north => North.new, :east => East.new, :west => West.new, :south => South.new}
-    Rover.new(directions[heading],{ :x =>x,:y => y })
+    Rover.new(directions[heading],{ :x => x,:y => y }, plateau)
   end
+  let(:plateau) { fake }
 
   context "when facing north" do
     let(:sut) { create_sut :north, 0, 0 }
@@ -74,14 +75,14 @@ describe Rover do
 
   context "when driving forward" do
     it "should move forward along the terrain" do
-      @terrain.should have_received(:move_forward, @sut.instance_variable_get(:@heading), @sut.location )
+      plateau.should have_received(:move_forward, @sut.instance_variable_get(:@heading), @sut.location )
     end
     before do
-      @terrain = fake
       @sut = create_sut(:north)
-      @sut.move_forward(@terrain)
+      @sut.forward
     end
   end
+
   context "when printed" do
     it "should return the heading and location" do
       create_sut(:north).to_s.should == '0 0 N'
