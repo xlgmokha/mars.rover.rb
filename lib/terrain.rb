@@ -6,6 +6,7 @@ class Terrain
 
   def move_forward( heading, location)
     new_location = heading.forward(location.clone)
+    puts new_location
     if(is_on_terrain(new_location, :x) && is_on_terrain(new_location, :y))
       location[:x] = new_location[:x]
       location[:y] = new_location[:y]
