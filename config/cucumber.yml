@@ -1,4 +1,4 @@
 # config/cucumber.yml
 ##YAML Template
 ---
-default: --no-source --format pretty --require features/step_definitions features
+default: --no-source --format pretty -S --require features/step_definitions features
