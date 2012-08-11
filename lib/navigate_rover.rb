@@ -7,14 +7,15 @@ class NavigateRover
     @instructions = instructions
   end
   def run
-    terrain = create_terrain(@plateau_size)
-    rover = terrain.deploy_rover_to(@heading, @x, @x)
-    @instructions.split(//).each do |instruction|
-      commands_for(rover).find { |item| item.matches(instruction) }.run
+    rover = create_plateau(@plateau_size).deploy_rover_to(@heading, @x, @x)
+    commands_for(rover).each do |item| 
+      @instructions.split(//).each do |instruction|
+        item.run(instruction)
+      end
     end
     rover
   end
-  def create_terrain(plateau_size)
+  def create_plateau(plateau_size)
     coordinates = plateau_size.split(' ')
     Plateau.new(coordinates[0], coordinates[1])
   end
@@ -27,8 +28,8 @@ class MoveForward
   def initialize(rover)
     @rover = rover
   end
-  def run
-    @rover.forward
+  def run(instruction)
+    @rover.forward if matches(instruction)
   end
   def matches(item)
     'M' == item
@@ -38,8 +39,8 @@ class TurnLeft
   def initialize(rover)
     @rover = rover
   end
-  def run
-    @rover.turn_left
+  def run(instruction)
+    @rover.turn_left if matches(instruction)
   end
   def matches(item)
     'L' == item
@@ -49,8 +50,8 @@ class TurnRight
   def initialize(rover)
     @rover = rover
   end
-  def run
-    @rover.turn_right
+  def run(instruction)
+    @rover.turn_right if matches(instruction)
   end
   def matches(item)
     'R' == item
