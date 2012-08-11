@@ -1,8 +1,15 @@
 class NavigateRover
-  def run(plateau_size, starting_position, instructions)
-    terrain = create_terrain(plateau_size)
-    rover = terrain.deploy_rover_to(starting_position.split()[2], starting_position.split()[0].to_i, starting_position.split()[1].to_i)
-    instructions.split(//).each do |instruction|
+  def initialize(plateau_size, starting_position, instructions)
+    @plateau_size = plateau_size
+    @x = starting_position.split()[0].to_i
+    @y = starting_position.split()[1].to_i
+    @heading = starting_position.split()[2]
+    @instructions = instructions
+  end
+  def run
+    terrain = create_terrain(@plateau_size)
+    rover = terrain.deploy_rover_to(@heading, @x, @x)
+    @instructions.split(//).each do |instruction|
       case(instruction)
       when 'M'
         rover.move_forward(terrain)

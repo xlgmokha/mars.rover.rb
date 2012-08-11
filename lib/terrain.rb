@@ -6,7 +6,7 @@ class Terrain
 
   def move_forward( heading, location)
     new_location = heading.forward(location.clone)
-    puts "#{new_location[:x]}"
+
     if(new_location[:x] > @map[:x])
       location[:x] = new_location[:x] - @map[:x]
     elsif (new_location[:x] < 0)
