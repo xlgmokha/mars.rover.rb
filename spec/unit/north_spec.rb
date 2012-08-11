@@ -21,4 +21,9 @@ describe North do
       sut.turn_left.should be_an_instance_of(West)
     end
   end
+  context "when displayed" do
+    it "should display 'N'" do
+      sut.to_s.should == 'N'
+    end
+  end
 end

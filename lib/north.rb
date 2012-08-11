@@ -8,4 +8,7 @@ class North
   def forward(location)
     location[:y] = location[:y].to_i + 1
   end
+  def to_s
+    'N'
+  end
 end

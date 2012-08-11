@@ -17,7 +17,7 @@ class Rover
     terrain.move_forward(@heading, @location)
   end
   def to_s
-    "#{@heading} #{@location}"
+    "#{@location[:x]} #{@location[:y]} #{@heading}"
   end
 end
 

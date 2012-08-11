@@ -82,4 +82,9 @@ describe Rover do
       @sut.move_forward(@terrain)
     end
   end
+  context "when printed" do
+    it "should return the heading and location" do
+      create_sut(:north).to_s.should == '0 0 N'
+    end
+  end
 end
