@@ -1,4 +1,4 @@
-require 'terrain'
+require 'plateau'
 require 'rover'
 require 'north'
 require 'east'

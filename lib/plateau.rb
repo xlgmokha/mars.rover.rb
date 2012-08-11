@@ -1,4 +1,4 @@
-class Terrain
+class Plateau
   def initialize(x,y)
     @map = {:x => x, :y => y}
     @headings = [North.new, East.new, West.new, South.new]
@@ -25,7 +25,7 @@ class Terrain
   end
 
   def deploy_rover_to(heading, x, y)
-    Rover.new(heading_for(heading), {:x => x, :y => y})
+    Rover.new(heading_for(heading), {:x => x, :y => y}, self)
   end
 
   private 

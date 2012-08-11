@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-describe Terrain do
-  let(:sut) {Terrain.new(3,  3)}
+describe Plateau do
+  let(:sut) {Plateau.new(3,  3)}
 
   context "when moving forward" do
     context "when the next position is to far east" do

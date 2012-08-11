@@ -12,7 +12,7 @@ class NavigateRover
     @instructions.split(//).each do |instruction|
       case(instruction)
       when 'M'
-        rover.move_forward(terrain)
+        rover.forward
       when 'L'
         rover.turn_left
       when 'R'
@@ -22,6 +22,7 @@ class NavigateRover
     rover
   end
   def create_terrain(plateau_size)
-    Terrain.new(plateau_size.split(' ')[0], plateau_size.split(' ')[1])
+    coordinates = plateau_size.split(' ')
+    Plateau.new(coordinates[0], coordinates[1])
   end
 end
