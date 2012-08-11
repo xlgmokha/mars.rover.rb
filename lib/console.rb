@@ -9,14 +9,13 @@ class Console
   def initialize(input, output)
     @input = input
     @output = output
-    @headings = [North.new, East.new, West.new, South.new]
   end
   def run
     edge = ask('enter size of terrain:', ' ')
     terrain = Terrain.new({:x => edge[0].to_i, :y => edge[1].to_i})
 
     landing = ask('enter landing coordinate:', ' ')
-    rover = Rover.new(heading_for(landing[2]), {:x => landing[0].to_i, :y => landing[1].to_i})
+    rover = terrain.deploy_rover_to(landing[2], {:x => landing[0].to_i, :y => landing[1].to_i})
 
     ask('enter instructions:', //).each do |instruction|
       case(instruction)
@@ -36,9 +35,5 @@ class Console
     @output.puts message
     @output.print '> '
     @input.gets.split(split)
-  end
-
-  def heading_for(pneumonic)
-    @headings.find { |heading| heading.to_s == pneumonic }
   end
 end
