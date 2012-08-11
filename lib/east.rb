@@ -6,7 +6,7 @@ class East
     North.new
   end
   def forward(location)
-    location[:x] = location[:x]+1
+    location[:x] = location[:x].to_i + 1
   end
   def to_s
     'E'

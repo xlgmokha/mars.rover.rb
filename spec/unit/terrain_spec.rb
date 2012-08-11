@@ -1,25 +1,26 @@
 require 'spec_helper'
 
 describe Terrain do
-  let(:sut) {Terrain.new({:x => 3, :y => 3})}
+  let(:sut) {Terrain.new(3,  3)}
 
   context "when moving forward" do
     context "when the next position is to far east" do
-      it "should not let you move forward" do
-        @location[:x].should == 3
+      it "should move to the other side of the board" do
+        @location[:x].should == 1
         @location[:y].should == 0
       end
       before do
         @heading = fake
         @location = {:x => 3, :y => 0}
         @heading.stub(:forward).with(@location).and_return({:x => 4, :y => 0})
+
         sut.move_forward(@heading, @location)
       end
     end
 
     context "when the next position is to far west" do
-      it "should not let you move forward" do
-        @location[:x].should == 0
+      it "should move to the other side of the board" do
+        @location[:x].should == 3
         @location[:y].should == 0
       end
       before do
@@ -31,9 +32,9 @@ describe Terrain do
     end
 
     context "when the next position is to far north" do
-      it "should not let you move forward" do
+      it "should move to the other side of the board" do
         @location[:x].should == 0
-        @location[:y].should == 3
+        @location[:y].should == 1
       end
       before do
         @heading = fake
@@ -44,9 +45,9 @@ describe Terrain do
     end
 
     context "when the next position is to far south" do
-      it "should not let you move forward" do
+      it "should move to the other side of the board" do
         @location[:x].should == 0
-        @location[:y].should == 0
+        @location[:y].should == 3
       end
       before do
         @heading = fake

@@ -6,7 +6,7 @@ class West
     South.new
   end
   def forward(current_location)
-    current_location[:x] = current_location[:x]-1
+    current_location[:x] = current_location[:x].to_i - 1
   end
   def to_s
     'W'

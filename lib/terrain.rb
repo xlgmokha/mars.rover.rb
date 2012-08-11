@@ -1,25 +1,34 @@
 class Terrain
-  def initialize(edge_of_map)
-    @map = edge_of_map
+  def initialize(x,y)
+    @map = {:x => x, :y => y}
     @headings = [North.new, East.new, West.new, South.new]
   end
 
   def move_forward( heading, location)
     new_location = heading.forward(location.clone)
-    if(is_on_terrain(new_location, :x) && is_on_terrain(new_location, :y))
+    puts "#{new_location[:x]}"
+    if(new_location[:x] > @map[:x])
+      location[:x] = new_location[:x] - @map[:x]
+    elsif (new_location[:x] < 0)
+      location[:x] = @map[:x]
+    else
       location[:x] = new_location[:x]
+    end
+
+    if(new_location[:y] > @map[:y])
+      location[:y] = new_location[:y] - @map[:y]
+    elsif (new_location[:y] < 0)
+      location[:y] = @map[:y]
+    else
       location[:y] = new_location[:y]
     end
   end
 
-  def deploy_rover_to(heading, coordinates)
-    Rover.new(heading_for(heading), coordinates)
+  def deploy_rover_to(heading, x, y)
+    Rover.new(heading_for(heading), {:x => x, :y => y})
   end
 
   private 
-  def is_on_terrain(new_location, symbol)
-    new_location[symbol] < @map[symbol] && new_location[symbol] > 0
-  end
   def heading_for(pneumonic)
     @headings.find { |heading| heading.to_s == pneumonic }
   end
