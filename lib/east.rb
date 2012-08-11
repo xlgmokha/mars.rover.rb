@@ -8,4 +8,7 @@ class East
   def forward(location)
     location[:x] = location[:x]+1
   end
+  def to_s
+    'E'
+  end
 end

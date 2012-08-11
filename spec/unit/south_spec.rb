@@ -21,4 +21,9 @@ describe South do
       sut.turn_right.should be_an_instance_of(West)
     end
   end
+  context "when displayed" do
+    it "should display 'S'" do
+      sut.to_s.should == 'S'
+    end
+  end
 end

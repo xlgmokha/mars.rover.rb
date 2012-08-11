@@ -22,4 +22,9 @@ describe West do
       sut.turn_left.should be_an_instance_of(South)
     end
   end
+  context "when displayed" do
+    it "should display 'W'" do
+      sut.to_s.should == 'W'
+    end
+  end
 end

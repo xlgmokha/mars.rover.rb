@@ -8,4 +8,7 @@ class South
   def forward(location)
     location[:y] = location[:y]-1
   end
+  def to_s
+    'S'
+  end
 end
