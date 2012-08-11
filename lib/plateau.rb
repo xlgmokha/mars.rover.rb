@@ -1,7 +1,7 @@
 class Plateau
   def initialize(x,y)
     @map = {:x => x, :y => y}
-    @headings = [North.new, East.new, West.new, South.new]
+    @directions = {:N => North.new, :E => East.new, :W => West.new, :S => South.new}
   end
 
   def move_forward( heading, location)
@@ -25,11 +25,6 @@ class Plateau
   end
 
   def deploy_rover_to(heading, x, y)
-    Rover.new(heading_for(heading), {:x => x, :y => y}, self)
-  end
-
-  private 
-  def heading_for(pneumonic)
-    @headings.find { |heading| heading.to_s == pneumonic }
+    Rover.new(@directions[heading.to_sym], {:x => x, :y => y}, self)
   end
 end
