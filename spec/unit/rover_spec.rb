@@ -11,13 +11,13 @@ describe Rover do
     let(:sut) { create_sut :north, 0, 0 }
     context "when turning right" do
       it "should face east" do
-        sut.turn(Right.new)
+        sut.rotate(90)
         sut.heading.should == :east
       end
     end
     context "when turning left" do
       it "should face west" do
-        sut.turn(Left.new)
+        sut.rotate(-90)
         sut.heading.should == :west
       end
     end
@@ -27,13 +27,13 @@ describe Rover do
     let(:sut) { create_sut :south, 0, 3 }
     context "when turning right" do
       it "should face west" do
-        sut.turn(Right.new)
+        sut.rotate(90)
         sut.heading.should == :west
       end
     end
     context "when turning left" do
       it "should face east" do
-        sut.turn(Left.new)
+        sut.rotate(-90)
         sut.heading.should == :east
       end
     end
@@ -44,13 +44,13 @@ describe Rover do
 
     context "when turning right" do
       it "should face south" do
-        sut.turn(Right.new)
+        sut.rotate(90)
         sut.heading.should == :south
       end
     end
     context "when turning left" do
       it "should face north" do
-        sut.turn(Left.new)
+        sut.rotate(-90)
         sut.heading.should == :north
       end
     end
@@ -61,13 +61,13 @@ describe Rover do
 
     context "when turning right" do
       it "should face north" do
-        sut.turn(Right.new)
+        sut.rotate(90)
         sut.heading.should == :north
       end
     end
     context "when turning left" do
       it "should face south" do
-        sut.turn(Left.new)
+        sut.rotate(-90)
         sut.heading.should == :south
       end
     end

@@ -8,8 +8,8 @@ class Rover
   def heading
     @heading.class.name.downcase.to_sym
   end
-  def turn(direction)
-    @heading = direction.turn_from(@heading)
+  def rotate(degrees)
+    @heading = @heading.rotate(degrees)
   end
   def forward
     @plateau.move_forward(@heading, @location)

@@ -5,7 +5,7 @@ class South
   def turn_left
     East.new
   end
-  def turn(degrees)
+  def rotate(degrees)
     degrees > 0 ? turn_right : turn_left
   end
   def forward(location)
