@@ -9,9 +9,11 @@ class Rover
     @heading.class.name.downcase.to_sym
   end
   def rotate(degrees)
+    puts "rotate #{degrees}"
     @heading = @heading.rotate(degrees)
   end
   def forward
+    puts "move forward"
     @plateau.move_forward(@heading, @location)
   end
   def to_s

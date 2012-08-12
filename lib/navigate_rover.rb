@@ -1,3 +1,8 @@
+require "plateau"
+require "move_forward"
+require "turn_left"
+require "turn_right"
+
 class NavigateRover
   def initialize(plateau_size, starting_position, instructions)
     @plateau_size = plateau_size

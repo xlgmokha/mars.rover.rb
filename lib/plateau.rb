@@ -1,3 +1,9 @@
+require "rover"
+require "north"
+require "east"
+require "west"
+require "south"
+
 class Plateau
   def initialize(x,y)
     @map = {:x => x, :y => y}
