@@ -8,11 +8,8 @@ class Rover
   def heading
     @heading.class.name.downcase.to_sym
   end
-  def turn_right
-    @heading = @heading.turn_right
-  end
-  def turn_left
-    @heading = @heading.turn_left
+  def turn(direction)
+    @heading = direction.turn_from(@heading)
   end
   def forward
     @plateau.move_forward(@heading, @location)
@@ -21,4 +18,3 @@ class Rover
     "#{@location[:x]} #{@location[:y]} #{@heading}"
   end
 end
-

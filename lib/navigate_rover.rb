@@ -40,7 +40,7 @@ class TurnLeft
     @rover = rover
   end
   def run(instruction)
-    @rover.turn_left if matches(instruction)
+    @rover.turn(Left.new) if matches(instruction)
   end
   def matches(item)
     'L' == item
@@ -51,9 +51,19 @@ class TurnRight
     @rover = rover
   end
   def run(instruction)
-    @rover.turn_right if matches(instruction)
+    @rover.turn(Right.new) if matches(instruction)
   end
   def matches(item)
     'R' == item
+  end
+end
+class Left
+  def turn_from(heading)
+    heading.turn(-90)
+  end
+end
+class Right
+  def turn_from(heading)
+    heading.turn(90)
   end
 end

@@ -15,13 +15,14 @@ describe NavigateRover do
           sut.run.should == '1 3 N'
         end
       end
-      #context "starting at 3 3 E" do
-        #let(:starting_position) { '3 3 E' }
+      context "starting at 3 3 E" do
+        let(:starting_position) { '3 3 E' }
+        let(:instructions){'MMRMMRMRRM'}
 
-        #it "should reply with the proper final coordinates" do
-          #sut.run(plateau, starting_position, 'MMRMMRMRRM').should == '5 1 E'
-        #end
-      #end
+        it "should reply with the proper final coordinates" do
+          sut.run.should == '5 1 E'
+        end
+      end
     end
   end
 end
