@@ -6,7 +6,7 @@ require "south"
 
 class Plateau
   def initialize(x,y)
-    @map = {:x => x, :y => y}
+    @map = {:x => x.to_i, :y => y.to_i}
     @directions = {:N => North.new, :E => East.new, :W => West.new, :S => South.new}
   end
 
@@ -31,6 +31,6 @@ class Plateau
   end
 
   def deploy_rover_to(heading, x, y)
-    Rover.new(@directions[heading.to_sym], {:x => x, :y => y}, self)
+    Rover.new(@directions[heading.to_sym],  x,  y, self)
   end
 end

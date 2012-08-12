@@ -3,7 +3,9 @@ class MoveForward
     @rover = rover
   end
   def run(instruction)
-    @rover.forward if matches(instruction)
+    if matches(instruction)
+      @rover.forward
+    end
   end
   def matches(item)
     'M' == item

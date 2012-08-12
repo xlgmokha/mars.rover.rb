@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Rover do
   def create_sut(heading, x = 0, y = 0)
     directions = {:north => North.new, :east => East.new, :west => West.new, :south => South.new}
-    Rover.new(directions[heading],{ :x => x,:y => y }, plateau)
+    Rover.new(directions[heading], x, y , plateau)
   end
   let(:plateau) { fake }
 

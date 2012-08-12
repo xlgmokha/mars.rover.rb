@@ -9,7 +9,8 @@ class East
     degrees > 0 ? turn_right : turn_left
   end
   def forward(location)
-    location[:x] = location[:x].to_i + 1
+    location[:x] = location[:x] + 1
+    location
   end
   def to_s
     'E'

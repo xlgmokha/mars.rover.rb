@@ -8,8 +8,9 @@ class West
   def rotate(degrees)
     degrees > 0 ? turn_right : turn_left
   end
-  def forward(current_location)
-    current_location[:x] = current_location[:x].to_i - 1
+  def forward(location)
+    location[:x] = location[:x] - 1
+    location
   end
   def to_s
     'W'

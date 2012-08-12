@@ -12,13 +12,13 @@ class NavigateRover
     @instructions = instructions
   end
   def run
-    rover = create_plateau(@plateau_size).deploy_rover_to(@heading, @x, @x)
-    commands_for(rover).each do |item| 
-      @instructions.split(//).each do |instruction|
+    rover = create_plateau(@plateau_size).deploy_rover_to(@heading, @x, @y)
+    @instructions.split(//).each do |instruction|
+      commands_for(rover).each do |item| 
         item.run(instruction)
       end
     end
-    rover
+    rover.to_s
   end
   def create_plateau(plateau_size)
     coordinates = plateau_size.split(' ')

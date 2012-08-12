@@ -9,7 +9,8 @@ class South
     degrees > 0 ? turn_right : turn_left
   end
   def forward(location)
-    location[:y] = location[:y].to_i - 1
+    location[:y] = location[:y] - 1
+    location
   end
   def to_s
     'S'
