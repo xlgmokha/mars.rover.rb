@@ -6,17 +6,20 @@ class Console
     @output = output
   end
   def run
-    edge = ask('enter size of terrain:')
-    landing = ask('enter landing coordinate:')
-    instructions = ask('enter instructions:')
+    plateau = ask('enter size of plateau:')
 
-    command = NavigateRover.new(edge, landing, instructions)
-    @output.puts "final location: #{command.run}"
+    @output.puts "#{create(plateau).run}"
   end
+
+  private
 
   def ask(message)
     @output.puts message
     @output.print '> '
     @input.gets
+  end
+
+  def create(plateau)
+    NavigateRover.new(plateau, ask('enter landing coordinate:'), ask('enter instructions:'))
   end
 end
