@@ -13,24 +13,22 @@ class Plateau
   def move_forward( heading, location)
     new_location = heading.forward(location.clone)
 
-    if(new_location[:x] > @map[:x])
-      location[:x] = new_location[:x] - @map[:x]
-    elsif (new_location[:x] < 0)
-      location[:x] = @map[:x]
-    else
-      location[:x] = new_location[:x]
-    end
-
-    if(new_location[:y] > @map[:y])
-      location[:y] = new_location[:y] - @map[:y]
-    elsif (new_location[:y] < 0)
-      location[:y] = @map[:y]
-    else
-      location[:y] = new_location[:y]
-    end
+    adjust(location, new_location, :x)
+    adjust(location, new_location, :y)
   end
 
   def deploy_rover_to(heading, x, y)
     Rover.new(@directions[heading.to_sym],  x,  y, self)
+  end
+
+  private 
+  def adjust(location, new_location, axis)
+    if(new_location[axis] > @map[axis])
+      location[axis] = new_location[axis] - @map[axis]
+    elsif (new_location[axis] < 0)
+      location[axis] = @map[axis]
+    else
+      location[axis] = new_location[axis]
+    end
   end
 end
