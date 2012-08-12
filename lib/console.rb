@@ -1,14 +1,21 @@
 require 'navigate_rover'
+require "command_processor"
 
 class Console
   def initialize(input, output)
     @input = input
     @output = output
+    @processor = CommandProcessor.new
   end
   def run
     plateau = ask('enter size of plateau:')
 
-    @output.puts "#{create(plateau).run}"
+    while ((landing = ask('enter landing coordinate (q to quit):')) != 'q') do
+      command = NavigateRover.new(plateau, landing, ask('enter instructions:'))
+      @processor.add(command)
+    end
+
+    @output.puts "#{@processor.run}"
   end
 
   private
@@ -16,10 +23,6 @@ class Console
   def ask(message)
     @output.puts message
     @output.print '> '
-    @input.gets
-  end
-
-  def create(plateau)
-    NavigateRover.new(plateau, ask('enter landing coordinate:'), ask('enter instructions:'))
+    @input.gets.chomp!
   end
 end

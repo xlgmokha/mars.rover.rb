@@ -7,7 +7,7 @@ class CommandProcessor
   end
   def run
     while @commands.length > 0 do
-      @commands.shift.run
+      puts @commands.shift.run
     end
   end
 end
