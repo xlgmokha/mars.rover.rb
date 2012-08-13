@@ -8,4 +8,4 @@ Feature: Navigation
     And the starting position is '1 2 N'
     And I move "LMLMLMLMM"
     When I tell the rover to travel
-    Then the rovers final positions should be '1 3 N' on the screen.
+    Then the rovers final position should be '1 3 N' on the screen.

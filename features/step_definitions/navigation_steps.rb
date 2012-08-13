@@ -17,7 +17,6 @@ When /^I tell the rover to travel$/ do
   @command = NavigateRover.new(@plateau, @rover, @instructions)
 end
 
-Then /^the rovers final positions should be '(.*)' on the screen\.$/ do |expected|
+Then /^the rovers final position should be '(.*)' on the screen\.$/ do |expected|
   @command.run.should == expected
 end
-
