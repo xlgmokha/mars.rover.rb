@@ -13,3 +13,4 @@ Feature: Navigation
     Examples:
       | start_x | start_y | starting_position | instructions  | result |
       | 5       | 5       | 1 2 N             | LMLMLMLMM     | 1 3 N  |
+      | 5       | 5       | 3 3 E             | MMRMMRMRRM    | 5 1 E  |
