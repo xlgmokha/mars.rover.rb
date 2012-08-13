@@ -2,10 +2,10 @@ require 'navigate_rover'
 require "command_processor"
 
 class Console
-  def initialize(input, output)
+  def initialize(input, output, processor = CommandProcessor.new)
     @input = input
     @output = output
-    @processor = CommandProcessor.new
+    @processor = processor
   end
   def run
     plateau = ask('enter size of plateau:')
