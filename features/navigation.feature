@@ -3,9 +3,9 @@ Feature: Navigation
   As a NASA employee
   I want to find out the final coordinates.
 
-  Scenario Outline: Navigate a rover
+  Scenario: Navigate a rover
     Given the plateau is 5 by 5
     And the starting position is '1 2 N'
-    And I move 'LMLMLMLMM'
+    And I move "LMLMLMLMM"
     When I tell the rover to travel
     Then the rovers final positions should be '1 3 N' on the screen.
