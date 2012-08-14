@@ -1,4 +1,4 @@
-$:.unshift(File.dirname(__FILE__) + '/../../spec')
+$:.unshift(File.dirname(__FILE__) + '/../..')
 require 'spec_helper'
 
 Given /^the plateau is (\d+) by (\d+)$/ do |x,y|
