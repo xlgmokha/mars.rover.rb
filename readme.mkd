@@ -1,5 +1,7 @@
 # PROBLEM THREE: MARS ROVERS
 
+[![Build Status](https://secure.travis-ci.org/mokhan/mars.rover.rb.png)](http://travis-ci.org/mokhan/mars.rover.rb)
+
 A squad of robotic rovers are to be landed by NASA on a plateau on Mars.
 This plateau, which is curiously rectangular, must be navigated by the
 rovers so that their on-board cameras can get a complete view of the
