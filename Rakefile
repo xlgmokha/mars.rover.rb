@@ -6,6 +6,5 @@ task :spec do
 end
 
 task :run do
-  #sh "ruby -I bin:lib bin/app.rb"
   sh "bin/app.rb"
 end
