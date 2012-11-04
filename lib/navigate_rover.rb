@@ -21,8 +21,8 @@ class NavigateRover
     rover.to_s
   end
   def create_plateau(plateau_size)
-    coordinates = plateau_size.split(' ')
-    Plateau.new(coordinates[0], coordinates[1])
+    x,y = plateau_size.split(' ')
+    Plateau.new(x,y)
   end
   def commands_for(rover)
     [MoveForward.new(rover), TurnLeft.new(rover), TurnRight.new(rover)]
