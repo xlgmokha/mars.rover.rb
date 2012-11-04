@@ -9,16 +9,12 @@ class Rover
     @location.rotate(degrees)
   end
 
-  def forward
+  def drive
     @plateau.move_forward(@location.heading, @location.location)
   end
 
   def is_facing(direction)
     @location.is_facing(direction)
-  end
-
-  def location
-    @location.location
   end
 
   def to_s

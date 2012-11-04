@@ -4,7 +4,7 @@ class MoveForward
   end
   def run(instruction)
     if matches(instruction)
-      @rover.forward
+      @rover.drive
     end
   end
   def matches(item)

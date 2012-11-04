@@ -79,7 +79,7 @@ describe Rover do
     end
     before do
       @sut = create_sut(:north)
-      @sut.forward
+      @sut.drive
     end
   end
 
