@@ -75,7 +75,7 @@ describe Rover do
 
   context "when driving forward" do
     it "should move forward along the terrain" do
-      plateau.should have_received(:move_forward, @sut.instance_variable_get(:@heading), @sut.location )
+      plateau.should have_received(:move_forward)
     end
     before do
       @sut = create_sut(:north)
