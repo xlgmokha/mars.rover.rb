@@ -12,6 +12,9 @@ class South
     location[:y] = location[:y] - 1
     location
   end
+  def represents?(direction)
+    :south == direction
+  end
   def to_s
     'S'
   end

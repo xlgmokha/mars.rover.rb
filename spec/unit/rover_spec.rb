@@ -12,13 +12,13 @@ describe Rover do
     context "when turning right" do
       it "should face east" do
         sut.rotate(90)
-        sut.heading.should == :east
+        sut.is_facing(:east).should be_true
       end
     end
     context "when turning left" do
       it "should face west" do
         sut.rotate(-90)
-        sut.heading.should == :west
+        sut.is_facing(:west).should be_true
       end
     end
   end
@@ -28,13 +28,13 @@ describe Rover do
     context "when turning right" do
       it "should face west" do
         sut.rotate(90)
-        sut.heading.should == :west
+        sut.is_facing(:west).should be_true
       end
     end
     context "when turning left" do
       it "should face east" do
         sut.rotate(-90)
-        sut.heading.should == :east
+        sut.is_facing(:east).should be_true
       end
     end
   end
@@ -45,13 +45,13 @@ describe Rover do
     context "when turning right" do
       it "should face south" do
         sut.rotate(90)
-        sut.heading.should == :south
+        sut.is_facing(:south).should be_true
       end
     end
     context "when turning left" do
       it "should face north" do
         sut.rotate(-90)
-        sut.heading.should == :north
+        sut.is_facing(:north).should be_true
       end
     end
   end
@@ -62,13 +62,13 @@ describe Rover do
     context "when turning right" do
       it "should face north" do
         sut.rotate(90)
-        sut.heading.should == :north
+        sut.is_facing(:north).should be_true
       end
     end
     context "when turning left" do
       it "should face south" do
         sut.rotate(-90)
-        sut.heading.should == :south
+        sut.is_facing(:south).should be_true
       end
     end
   end

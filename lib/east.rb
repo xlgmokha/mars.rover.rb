@@ -12,6 +12,9 @@ class East
     location[:x] = location[:x] + 1
     location
   end
+  def represents?(direction)
+    :east == direction
+  end
   def to_s
     'E'
   end

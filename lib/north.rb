@@ -12,6 +12,9 @@ class North
     location[:y] = location[:y].to_i + 1
     location
   end
+  def represents?(direction)
+    :north == direction
+  end
   def to_s
     'N'
   end

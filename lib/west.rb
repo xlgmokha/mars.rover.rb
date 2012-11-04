@@ -12,6 +12,9 @@ class West
     location[:x] = location[:x] - 1
     location
   end
+  def represents?(direction)
+    :west == direction
+  end
   def to_s
     'W'
   end
