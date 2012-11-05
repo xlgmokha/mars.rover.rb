@@ -24,6 +24,24 @@ class Location
     @location[axis] = coordinate
   end
 
+  def increment(axis, map)
+    next_position = current(axis) + 1
+    if(next_position > map[axis])
+      move_to(axis, 0)
+    else
+      move_to(axis, next_position)
+    end
+  end
+
+  def decrement(axis, map)
+    next_position = current(axis) - 1
+    if (next_position < 0)
+      move_to(axis, map[axis])
+    else
+      move_to(axis, next_position)
+    end
+  end
+
   def to_s
     "#{@location[:x]} #{@location[:y]} #{@heading}"
   end

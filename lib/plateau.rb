@@ -19,21 +19,11 @@ class Plateau
   end
 
   def increment(axis, location)
-    next_position = location.current(axis) + 1
-    if(next_position > @map[axis])
-      location.move_to(axis, 0)
-    else
-      location.move_to(axis, next_position)
-    end
+    location.increment(axis, @map)
   end
 
   def decrement(axis, location)
-    next_position = location.current(axis) - 1
-    if (next_position < 0)
-      location.move_to(axis, @map[axis])
-    else
-      location.move_to(axis, next_position)
-    end
+    location.decrement(axis, @map)
   end
 
   private
