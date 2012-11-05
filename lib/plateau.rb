@@ -10,7 +10,7 @@ class Plateau
     @directions = {:N => North.new, :E => East.new, :W => West.new, :S => South.new}
   end
 
-  def move_forward(location)
+  def move_forward_from(location)
     location.forward(self)
   end
 

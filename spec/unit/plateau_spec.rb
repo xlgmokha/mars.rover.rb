@@ -11,7 +11,7 @@ describe Plateau do
       end
       before do
         @location = Location.new(3, 0, East.new)
-        sut.move_forward(@location)
+        sut.move_forward_from(@location)
       end
     end
 
@@ -22,7 +22,7 @@ describe Plateau do
       end
       before do
         @location = Location.new(0, 0, West.new)
-        sut.move_forward(@location)
+        sut.move_forward_from(@location)
       end
     end
 
@@ -33,7 +33,7 @@ describe Plateau do
       end
       before do
         @location = Location.new(0, 3, North.new)
-        sut.move_forward(@location)
+        sut.move_forward_from(@location)
       end
     end
 
@@ -44,7 +44,7 @@ describe Plateau do
       end
       before do
         @location = Location.new( 0,  0, South.new)
-        sut.move_forward(@location)
+        sut.move_forward_from(@location)
       end
     end
 
@@ -55,7 +55,7 @@ describe Plateau do
       end
       before do
         @location = Location.new( 1,  0, North.new)
-        sut.move_forward(@location)
+        sut.move_forward_from(@location)
       end
     end
   end

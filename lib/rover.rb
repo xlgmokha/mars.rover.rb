@@ -10,7 +10,7 @@ class Rover
   end
 
   def drive
-    @plateau.move_forward(@location)
+    @plateau.move_forward_from(@location)
   end
 
   def is_facing(direction)

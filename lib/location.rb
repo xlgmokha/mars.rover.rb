@@ -26,20 +26,12 @@ class Location
 
   def increment(axis, map)
     next_position = current(axis) + 1
-    if(next_position > map[axis])
-      move_to(axis, 0)
-    else
-      move_to(axis, next_position)
-    end
+    move_to(axis, (next_position > map[axis]) ? 0 : next_position )
   end
 
   def decrement(axis, map)
     next_position = current(axis) - 1
-    if (next_position < 0)
-      move_to(axis, map[axis])
-    else
-      move_to(axis, next_position)
-    end
+    move_to(axis, (next_position < 0) ? map[axis] : next_position)
   end
 
   def to_s
