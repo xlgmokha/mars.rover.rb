@@ -8,9 +8,8 @@ class East
   def rotate(degrees)
     degrees > 0 ? turn_right : turn_left
   end
-  def forward(location)
-    location[:x] = location[:x] + 1
-    location
+  def forward(location, plateau)
+    plateau.increment(:x, location)
   end
   def represents?(direction)
     :east == direction

@@ -3,12 +3,13 @@ require "spec_helper"
 describe North do
   let(:sut) { North.new }
   context "when moving forward" do
+    let(:plateau) { Plateau.new(5, 5) }
     it "should move to the next position" do
-      @location[:y].should == 4
+      @location.location[:y].should == 4
     end
     before do
-      @location = {:x => 0, :y => 3}
-      sut.forward(@location)
+      @location = Location.new(0, 3, sut)
+      sut.forward(@location, plateau)
     end
   end
   context "when turning right" do

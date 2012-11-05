@@ -4,12 +4,13 @@ describe West do
   let(:sut){ West.new }
 
   context "when moving forward" do
+    let(:plateau) { Plateau.new(5, 5) }
     it "should move to the next position" do
-      @location[:x].should == 0
+      @location.location[:x].should == 0
     end
     before do
-      @location = {:x => 1, :y => 0}
-      sut.forward(@location)
+      @location = Location.new(1, 0, sut)
+      sut.forward(@location, plateau)
     end
   end
   context "when turning right" do

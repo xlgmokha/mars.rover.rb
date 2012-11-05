@@ -8,9 +8,8 @@ class South
   def rotate(degrees)
     degrees > 0 ? turn_right : turn_left
   end
-  def forward(location)
-    location[:y] = location[:y] - 1
-    location
+  def forward(location, plateau)
+    plateau.decrement(:y, location)
   end
   def represents?(direction)
     :south == direction

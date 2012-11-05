@@ -3,12 +3,13 @@ require 'spec_helper'
 describe South do
   let(:sut) { South.new }
   context "when driving forward" do
+    let(:plateau) { Plateau.new(5, 5) }
     it "should move forward" do
-      @location[:y].should == 0
+      @location.location[:y].should == 0
     end
     before do
-      @location = {:x => 0, :y => 1}
-      sut.forward(@location)
+      @location = Location.new(0, 1, sut)
+      sut.forward(@location, plateau)
     end
   end
   context "when turning left" do
