@@ -6,7 +6,7 @@ describe East do
   context "when moving forward" do
     let(:plateau) { Plateau.new(5, 5) }
     it "should move to the next position" do
-      @location.location[:x].should == 1
+      @location.current(:x).should == 1
     end
     before do
       @location = Location.new(0, 0, sut)

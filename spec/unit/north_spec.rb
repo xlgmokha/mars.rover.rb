@@ -5,7 +5,7 @@ describe North do
   context "when moving forward" do
     let(:plateau) { Plateau.new(5, 5) }
     it "should move to the next position" do
-      @location.location[:y].should == 4
+      @location.current(:y).should == 4
     end
     before do
       @location = Location.new(0, 3, sut)

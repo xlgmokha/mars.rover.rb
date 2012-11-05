@@ -5,7 +5,7 @@ describe South do
   context "when driving forward" do
     let(:plateau) { Plateau.new(5, 5) }
     it "should move forward" do
-      @location.location[:y].should == 0
+      @location.current(:y).should == 0
     end
     before do
       @location = Location.new(0, 1, sut)
