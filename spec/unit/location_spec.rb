@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-describe Plateau do
-  let(:sut) {Plateau.new(3,  3)}
+describe Location do
+  let(:plateau) {Plateau.new(3,  3)}
 
   context "when moving forward" do
     context "when the next position is to far east" do
@@ -11,7 +11,7 @@ describe Plateau do
       end
       before do
         @location = Location.new(3, 0, East.new)
-        sut.move_forward_from(@location)
+        @location.forward(plateau)
       end
     end
 
@@ -22,7 +22,7 @@ describe Plateau do
       end
       before do
         @location = Location.new(0, 0, West.new)
-        sut.move_forward_from(@location)
+        @location.forward(plateau)
       end
     end
 
@@ -33,7 +33,7 @@ describe Plateau do
       end
       before do
         @location = Location.new(0, 3, North.new)
-        sut.move_forward_from(@location)
+        @location.forward(plateau)
       end
     end
 
@@ -44,7 +44,7 @@ describe Plateau do
       end
       before do
         @location = Location.new( 0,  0, South.new)
-        sut.move_forward_from(@location)
+        @location.forward(plateau)
       end
     end
 
@@ -55,7 +55,7 @@ describe Plateau do
       end
       before do
         @location = Location.new( 1,  0, North.new)
-        sut.move_forward_from(@location)
+        @location.forward(plateau)
       end
     end
   end

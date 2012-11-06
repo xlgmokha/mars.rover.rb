@@ -10,10 +10,6 @@ class Plateau
     @directions = {:N => North.new, :E => East.new, :W => West.new, :S => South.new}
   end
 
-  def move_forward_from(location)
-    location.forward(self)
-  end
-
   def deploy_rover_to(heading, x, y)
     Rover.new(direction_for(heading),  x,  y, self)
   end
