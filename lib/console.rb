@@ -8,13 +8,9 @@ class Console
     @output = output
     @processor = processor
   end
+
   def run
-    plateau = ask('enter size of plateau:')
-
-    while ((landing = ask('enter landing coordinate (q to quit):')) != 'q') do
-      @processor.add(create_command_for(plateau, landing))
-    end
-
+    queue_commands_for(ask('enter size of plateau:'))
     @processor.run
   end
 
@@ -36,6 +32,12 @@ class Console
 
   def write_to_console(command)
     @output.puts "#{command.run}"
+  end
+
+  def queue_commands_for(plateau)
+    while ((landing = ask('enter landing coordinate (q to quit):')) != 'q') do
+      @processor.add(create_command_for(plateau, landing))
+    end
   end
 end
 
