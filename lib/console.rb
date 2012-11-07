@@ -11,11 +11,10 @@ class Console
     plateau = ask('enter size of plateau:')
 
     while ((landing = ask('enter landing coordinate (q to quit):')) != 'q') do
-      command = NavigateRover.new(plateau, landing, ask('enter instructions:'))
-      @processor.add(command)
+      @processor.add(create_command_for(plateau, landing))
     end
 
-    @output.puts "#{@processor.run}"
+    @processor.run
   end
 
   private
@@ -24,5 +23,19 @@ class Console
     @output.puts message
     @output.print '> '
     @input.gets.chomp!
+  end
+
+  def create_command_for(plateau, landing)
+    OutputResult.new(NavigateRover.new(plateau, landing, ask('enter instructions:')), @output)
+  end
+end
+
+class OutputResult
+  def initialize(command, output)
+    @command = command
+    @output = output
+  end
+  def run
+    @output.puts "#{@command.run}"
   end
 end
