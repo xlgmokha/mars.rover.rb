@@ -14,6 +14,7 @@ Feature: Navigation
       | x | y | starting_position | instructions  | result |
       | 5 | 5 | 1 2 N             | LMLMLMLMM     | 1 3 N  |
       | 5 | 5 | 3 3 E             | MMRMMRMRRM    | 5 1 E  |
+      | 5 | 5 | 3 3 E             | MmRmMrMrRm    | 5 1 E  |
       | 1 | 1 | 0 0 N             | M    | 0 1 N  |
       | 1 | 1 | 0 0 E             | M    | 1 0 E  |
       | 1 | 1 | 0 0 W             | M    | 1 0 W  |
