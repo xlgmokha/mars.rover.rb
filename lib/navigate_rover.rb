@@ -1,4 +1,6 @@
 require "plateau"
+require "specification"
+require "filtered_command"
 require "move_forward"
 require "turn_left"
 require "turn_right"
@@ -28,9 +30,14 @@ class NavigateRover
   end
 
   def commands_for(rover)
-    [move_forward(rover), TurnLeft.new(rover), TurnRight.new(rover)]
+    [
+      create_command_for(rover, eval("MoveForward"), 'M'),
+      create_command_for(rover, eval("TurnLeft"), 'L'),
+      create_command_for(rover, eval("TurnRight"), 'R')
+    ]
   end
-  def move_forward(rover)
-    FilteredCommand.new(MoveForward.new(rover), Specification.new(lambda { |x| 'M' == x.upcase }))
+
+  def create_command_for(rover, command, instruction)
+    FilteredCommand.new(command.new(rover), Specification.new(lambda { |x| instruction == x.upcase }))
   end
 end
