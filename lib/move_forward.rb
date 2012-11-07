@@ -8,6 +8,6 @@ class MoveForward
     end
   end
   def matches(item)
-    'M' == item
+    'M' == item.upcase
   end
 end

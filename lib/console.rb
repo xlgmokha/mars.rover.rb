@@ -40,4 +40,3 @@ class Console
     end
   end
 end
-

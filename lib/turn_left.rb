@@ -6,6 +6,6 @@ class TurnLeft
     @rover.rotate(-90) if matches(instruction)
   end
   def matches(item)
-    'L' == item
+    'L' == item.upcase
   end
 end
