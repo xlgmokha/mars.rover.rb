@@ -15,12 +15,12 @@ describe East do
   end
   context "when turning right" do
     it "should face South" do
-      sut.rotate(90).should be_an_instance_of(South)
+      sut.turn_right.should be_an_instance_of(South)
     end
   end
   context "when turning left" do
     it "should face North" do
-      sut.rotate(-90).should be_an_instance_of(North)
+      sut.turn_left.should be_an_instance_of(North)
     end
   end
   context "when displayed" do

@@ -1,4 +1,5 @@
 class East
+  include Rotation
   def rotate(degrees)
     degrees > 0 ? South.new : North.new
   end
