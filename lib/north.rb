@@ -1,12 +1,6 @@
 class North
-  def turn_right
-    East.new
-  end
-  def turn_left
-    West.new
-  end
   def rotate(degrees)
-    degrees > 0 ? turn_right : turn_left
+    degrees > 0 ? East.new : West.new
   end
   def forward(location, plateau)
     plateau.increment(:y, location)

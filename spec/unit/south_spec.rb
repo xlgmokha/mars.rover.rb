@@ -14,12 +14,12 @@ describe South do
   end
   context "when turning left" do
     it "should face east" do
-      sut.turn_left.should be_an_instance_of(East)
+      sut.rotate(-90).should be_an_instance_of(East)
     end
   end
   context "when turning right" do
     it "should face west" do
-      sut.turn_right.should be_an_instance_of(West)
+      sut.rotate(90).should be_an_instance_of(West)
     end
   end
   context "when displayed" do
