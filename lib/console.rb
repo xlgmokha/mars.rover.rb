@@ -1,6 +1,6 @@
-require 'navigate_rover'
-require 'command_processor'
-require 'interceptor'
+Dir[File.dirname(__FILE__) + "/**/*.rb"].each do |file|
+  require file
+end
 
 class Console
   def initialize(input, output, processor = CommandProcessor.new)
