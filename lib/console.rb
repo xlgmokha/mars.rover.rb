@@ -1,5 +1,6 @@
 require 'navigate_rover'
-require "command_processor"
+require 'command_processor'
+require 'interceptor'
 
 class Console
   def initialize(input, output, processor = CommandProcessor.new)
@@ -26,16 +27,15 @@ class Console
   end
 
   def create_command_for(plateau, landing)
-    OutputResult.new(NavigateRover.new(plateau, landing, ask('enter instructions:')), @output)
+    intercept(NavigateRover.new(plateau, landing, ask('enter instructions:')))
+  end
+
+  def intercept(command)
+    Interceptor.new(command, method(:write_to_console))
+  end
+
+  def write_to_console(command)
+    @output.puts "#{command.run}"
   end
 end
 
-class OutputResult
-  def initialize(command, output)
-    @command = command
-    @output = output
-  end
-  def run
-    @output.puts "#{@command.run}"
-  end
-end
